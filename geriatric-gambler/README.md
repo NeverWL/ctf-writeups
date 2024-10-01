@@ -1,4 +1,8 @@
-# Retrieving Flag #1 from the Breakout Game
+# Retrieving Flags from the Geriatric Gamblers' Website
+
+These are my solutions to flags #1 and #2 from the first CTF league meeting.
+
+## Retrieving Flag #1 from the Breakout Game
 
 First, after entering the breakout game, I opened the sources tab in the web developer console and searched for the text "flag" in index.js. This showed me the following code snippet:
 
@@ -34,7 +38,7 @@ fetch('/breakout?score=30').then(res => res.text()).then(flag => console.log(fla
 
 This printed the flag onto the console.
 
-## Retrieving FLag #2 from the Raffle Game
+## Retrieving Flag #2 from the Raffle Game
 
 After entering the raffle game, I opened the sources tab in the web console and checked for the text "flag" in index.js. I encountered it in this function:
 
@@ -83,5 +87,4 @@ app.get('/raffle', (req, res) => {
 });
 ```
 
-I immediately noticed that it would be impossible to use a fetch request to retrieve the winning numbers and write them in, as they would be rerolled by the function itself each time. Instead, I decided to run the query from the URL directly like this: "https://arcade.ctf-league.osusec.org/raffle?field1=true&field2=true&field3=true&field4=true&field5=true". By placing boolean values into the function expecting to receive integer values, I forced the function to fail each case expecting to parse integer values, leaving it to execute the final else clause and print the flag on the screen.
- 
+I immediately noticed that it would be impossible to use a fetch request to retrieve the winning numbers and write them in, as they would be rerolled by the function itself each time. Instead, I decided to run the query from the URL directly like this: <https://arcade.ctf-league.osusec.org/raffle?field1=true&field2=true&field3=true&field4=true&field5=true>. By placing boolean values into the function expecting to receive integer values, I forced the function to fail each case expecting to parse integer values, leaving it to execute the final else clause and print the flag on the screen.
