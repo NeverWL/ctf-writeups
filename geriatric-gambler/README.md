@@ -26,4 +26,4 @@ All that was left was to enter the frontend console and input the following fetc
 
 fetch('/breakout?score=30').then(res => res.text()).then(flag => console.log(flag));
 
-This printed the flag onto the console.
+This printed the flag onto the console
